@@ -29,11 +29,11 @@ def get_signed_signature(request: HttpRequest):
 
 
 def verify_signature(request: HttpRequest):
-    document = request.FILES.get('document_file')
-    cms_file = request.FILES.get('document_cms')
+    document = request.FILES.get('document')
+    cms_file = request.FILES.get('cms')
     hash = FileHandler(document).get_hash()
-    encoded_signature = FileHandler.get_data(cms_file)
+    encoded_signature = FileHandler(cms_file).get_data()
     public_key_text = request.POST.get('public_key')
     public_key_bytes = public_key_text.encode('utf-8')
     is_valid = SignatureVerifier.verify_signature(hash, encoded_signature, public_key_bytes)
-    return is_valid
+    return HttpResponse({"success": is_valid})

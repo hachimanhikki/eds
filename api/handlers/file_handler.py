@@ -1,14 +1,14 @@
 from Crypto.Hash import SHA256
-
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 class FileHandler:
-    def __init__(self, file):
+    def __init__(self, file: InMemoryUploadedFile):
         self.file = file
-        return None
     
     def get_data(self):
-        return self.file
+        return self.file.read()
 
     def get_hash(self):
-        hash = SHA256.new(self.get_data())
-        return hash
+        file_data = self.get_data()
+        hash_obj = SHA256.new(data=file_data)
+        return hash_obj

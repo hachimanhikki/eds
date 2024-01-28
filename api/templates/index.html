@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Section-->
+<section class="py-5">
+    <div class="container d-flex justify-content-around m-3">
+        <div class="col">
+                <a href="{% url 'signer' %}">
+                    <div class="icon-flex">
+                        <div class="icon-wrapper"><i class="bi bi-lock-fill"></i></div>
+                    </div>
+                </a>
+        </div>
+        <div class="col">
+                <a href="{% url 'verifier' %}">
+                    <div class="icon-flex">
+                        <div class="icon-wrapper"><i class="bi bi-patch-check-fill"></i></div>
+                    </div>
+                </a>
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -1,21 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
 <!-- Section-->
-<section class="py-5">
+<section class="py-5 d-flex justify-content-center">
     <div class="container d-flex justify-content-around m-3">
         <div class="col">
+            <div class="row">
                 <a href="{% url 'signer' %}">
                     <div class="icon-flex">
                         <div class="icon-wrapper"><i class="bi bi-lock-fill"></i></div>
                     </div>
                 </a>
+            </div>
+            <div class="row">
+                <h3 class='text-center text-white'>Sign a document</h3>
+            </div>
+                
         </div>
         <div class="col">
-                <a href="{% url 'verifier' %}">
-                    <div class="icon-flex">
-                        <div class="icon-wrapper"><i class="bi bi-patch-check-fill"></i></div>
-                    </div>
-                </a>
+                <div class="row">
+                    <a href="{% url 'verifier' %}">
+                        <div class="icon-flex">
+                            <div class="icon-wrapper"><i class="bi bi-patch-check-fill"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="row">
+                    <h3 class='text-center text-white'>Verify a document</h3>
+                </div>
         </div>
     </div>
 </section>

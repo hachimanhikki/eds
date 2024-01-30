@@ -1,13 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 <!-- Section-->
-<section class="py-5">
+<section class="py-5 d-flex justify-content-center">
     <div class="container px-4 px-lg-5 mt-5">
         {% block first_content %}
         <div class="group">
             <h1>Verifier</h1>
             <form id="myForm" method="POST" action="/verify_signature" enctype="multipart/form-data">
                 {% csrf_token %}
+                {% if context.success %}
+                <div class="alert alert-success alert-dismissible d-flex align-items-center fade show">
+                  <i class="bi-check-circle-fill"></i>
+                  <strong class="mx-2">Success!</strong> Successfully verified!
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                {% elif context.success == False %}
+                <div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
+                  <i class="bi-exclamation-octagon-fill"></i>
+                  <strong class="mx-2">Error!</strong> A problem has been occurred while verifying.
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                {% endif %}
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text">Path to document</span>

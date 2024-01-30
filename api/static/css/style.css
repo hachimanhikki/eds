@@ -141,6 +141,7 @@ textarea {
 }
 .bi {
   font-size: 28px;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;

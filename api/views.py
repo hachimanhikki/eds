@@ -36,4 +36,5 @@ def verify_signature(request: HttpRequest):
     public_key_text = request.POST.get('public_key')
     public_key_bytes = public_key_text.encode('utf-8')
     is_valid = SignatureVerifier.verify_signature(hash, encoded_signature, public_key_bytes)
-    return HttpResponse({"success": is_valid})
+    context = {"success": is_valid}
+    return render(request, 'verifier.html', {"context": context})

@@ -6,7 +6,7 @@
         {% block first_content %}
         <div class="group">
             <h1>Signer</h1>
-            <form id="myForm" method="POST" action="/signed_signature" enctype="multipart/form-data">
+            <form id="myForm1" method="POST" action="javascript:" onsubmit="connectAndSign(this)" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">

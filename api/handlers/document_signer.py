@@ -1,8 +1,8 @@
 import base64
-from .kalkan_com_test import kalkan_com_test
-
+from .NCANodeClient import nca_node_client
 
 class DocumentSigner:
     @staticmethod
-    def sign_document(hash, private_key):
-        return base64.b64encode(b"PLUM PLUM PLUM")
+    def sign_document(document, key, password):
+        request = nca_node_client.sign_document(document, key, password)
+        return request
